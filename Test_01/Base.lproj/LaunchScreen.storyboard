@@ -14,16 +14,37 @@
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNs-hF-dTM">
+                                <rect key="frame" x="0.0" y="164" width="375" height="56"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="DEMO APP">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.95008229062786642" green="0.79715177041230989" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="48" name="ComicSansMS"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.8175308108369852" blue="0.44429331672718742" alpha="0.86531690140845074" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vNs-hF-dTM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0TU-yf-jAa"/>
+                            <constraint firstItem="vNs-hF-dTM" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="Izo-I6-2hW"/>
+                            <constraint firstItem="vNs-hF-dTM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="144" id="d3P-LA-Ona"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
 </document>
