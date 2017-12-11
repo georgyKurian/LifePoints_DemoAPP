@@ -55,6 +55,10 @@ class LoginController: UIViewController,UITextViewDelegate, FUIAuthDelegate {
             if user != nil{
                 self.dbHandler = self.dbRef?.child((user?.uid)!).observe(DataEventType.value, with: {(snapshot) in
                     print("-------- Data Changed")
+                    guard snapshot.exists() else{
+                        print("--User doesn't exist")
+                        return
+                    }
                     let dataChanged = snapshot.value as! [String:String]
                     
                     if let username = dataChanged["username"]{
@@ -72,26 +76,6 @@ class LoginController: UIViewController,UITextViewDelegate, FUIAuthDelegate {
                         print("----- gps changed " + gps)
                     }
                     
-                    
-                    /*
-                    let key = snapshot.key
-                    let value = snapshot.value as? String
-                    
-                    print("-----"+key)
-                    
-                    switch key{
-                    case "username":
-                        self.usernameTextField.text = value
-                        print("-----------Username changed to \(value!)")
-                    case "bio":
-                        self.bioTextView.text = value;
-                        print("-----------bio changed to \(value!)");
-                    case "gps":
-                        self.gpsTextField.text = value;
-                        print("-----------gps changed to \(value!)");
-                    default: print("no match")
-                    }
-                    */
                 })
                 print("---Already logged in")
             }
@@ -140,6 +124,9 @@ class LoginController: UIViewController,UITextViewDelegate, FUIAuthDelegate {
     }
     
     @IBAction func logoutClick() {
+        usernameTextField.text = ""
+        bioTextView.text = ""
+        gpsTextField.text = ""
         self.logout()
     }
     

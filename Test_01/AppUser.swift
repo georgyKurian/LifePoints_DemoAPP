@@ -12,4 +12,10 @@ class AppUser:NSObject{
     var username:String?
     var bio:String?
     var gps:String?
+    
+    init(_ value:[String:Any]) {
+        self.username = value["username"] as? String
+        self.bio = value["bio"] as? String
+        self.gps = value["gps"] as? String
+    }
 }

@@ -24,13 +24,9 @@ class UsersTableViewControlle: UITableViewController {
     func getData(){
         dbHandler = dbRef?.observe(DataEventType.childAdded, with: { (snapshot) in
             print("------ New user to the list")
-            let dataChanged = snapshot.value as! [String:String]
+            let dataChanged = snapshot.value as! [String:Any]
             print(dataChanged)
-            
-            let newUser = AppUser()
-            newUser.username = dataChanged["username"]!
-            newUser.bio = dataChanged["bio"]!
-            newUser.gps = dataChanged["gps"]!
+            let newUser = AppUser(dataChanged)
             
             self.userList.append(newUser)
             DispatchQueue.main.async {

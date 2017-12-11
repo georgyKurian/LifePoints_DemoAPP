@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -77,7 +78,6 @@
                         <outlet property="bioTextView" destination="LVC-e3-d2r" id="JJr-vH-Rx0"/>
                         <outlet property="gpsTextField" destination="09e-R0-0JC" id="a5k-Ts-NO1"/>
                         <outlet property="usernameTextField" destination="nqa-XS-s5b" id="nKG-pT-92g"/>
-                        <segue destination="7Xb-mw-Ks8" kind="show" identifier="logout" id="FAB-R5-hVm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DLx-RW-ILB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -133,19 +133,26 @@
         <!--GPS-->
         <scene sceneID="5LE-mB-S2U">
             <objects>
-                <viewController id="NkN-aE-EWA" sceneMemberID="viewController">
+                <viewController id="NkN-aE-EWA" customClass="GPSViewController" customModule="Test_01" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bsP-mo-a39">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbd-44-oDG">
-                                <rect key="frame" x="164" y="147" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbd-44-oDG">
+                                <rect key="frame" x="113.5" y="304" width="148" height="30"/>
                                 <color key="backgroundColor" red="0.78731441747748998" green="0.84114522563100425" blue="1" alpha="0.16309969190140844" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="GET Current Location"/>
+                                <connections>
+                                    <action selector="getLocationClick:" destination="NkN-aE-EWA" eventType="touchUpInside" id="bam-zW-76z"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gbd-44-oDG" firstAttribute="width" secondItem="bsP-mo-a39" secondAttribute="height" multiplier="148:667" id="18p-GI-yK3"/>
+                            <constraint firstItem="gbd-44-oDG" firstAttribute="centerY" secondItem="vje-zK-9fN" secondAttribute="centerY" id="Ou5-Kv-t7I"/>
+                            <constraint firstItem="gbd-44-oDG" firstAttribute="centerX" secondItem="vje-zK-9fN" secondAttribute="centerX" id="fRu-AP-R4L"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vje-zK-9fN"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="GPS" id="ywZ-6A-PP5"/>
@@ -164,9 +171,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="NkN-aE-EWA" kind="relationship" relationship="viewControllers" id="cIY-t2-cLO"/>
-                        <segue destination="7Xb-mw-Ks8" kind="relationship" relationship="viewControllers" id="PYo-qW-F5E"/>
-                        <segue destination="Mk6-0A-OO7" kind="relationship" relationship="viewControllers" id="lxN-G8-2Vm"/>
+                        <segue destination="Mk6-0A-OO7" kind="relationship" relationship="viewControllers" id="GKt-Jp-Rca"/>
+                        <segue destination="7Xb-mw-Ks8" kind="relationship" relationship="viewControllers" id="e4R-K9-IoA"/>
+                        <segue destination="NkN-aE-EWA" kind="relationship" relationship="viewControllers" id="WP1-DA-Pwt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jv6-vE-HFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -174,7 +181,4 @@
             <point key="canvasLocation" x="-1743" y="-182"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="FAB-R5-hVm"/>
-    </inferredMetricsTieBreakers>
 </document>
