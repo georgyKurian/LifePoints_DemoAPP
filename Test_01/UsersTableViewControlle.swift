@@ -15,25 +15,41 @@ class UsersTableViewControlle: UITableViewController {
     var userList = [AppUser]();
     var dbRef:DatabaseReference?
     var dbHandler:DatabaseHandle?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.getData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dbRef = Database.database().reference().child("/users")
         self.getData()
+        
+        // Add a background view to the table view
+        let backgroundImage = UIImage(named:"Image")
+        let imageView = UIImageView(image: backgroundImage)
+        self.tableView.backgroundView = imageView
     }
     
     func getData(){
-        dbHandler = dbRef?.observe(DataEventType.childAdded, with: { (snapshot) in
-            print("------ New user to the list")
-            let dataChanged = snapshot.value as! [String:Any]
-            print(dataChanged)
-            let newUser = AppUser(dataChanged)
+        dbRef?.observeSingleEvent(of: .value, with: { (snapshot) in
+            print("------ Getting users from db")
+            let data = snapshot.value as! [String:AnyObject]
+            print(data)
+            self.userList.removeAll()
             
-            self.userList.append(newUser)
+            for (_,userData) in data{
+                let newUser = AppUser(userData as! [String:String])
+                self.userList.append(newUser)
+            }
+            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         })
     }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

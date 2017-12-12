@@ -18,7 +18,6 @@ class GPSViewController: UIViewController,CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         dbRef = Database.database().reference().child("/users")
-        
     }
 
     override func didReceiveMemoryWarning() {

@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbauth2</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -24,6 +28,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.830542570051-fnlnf9s46lk7016stcp7qi4m33b7pcel</string>
+				<string>fb520796741612942</string>
 			</array>
 		</dict>
 		<dict>
@@ -38,7 +43,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>fb520796741612942</string>
+	<string>520796741612942</string>
 	<key>FacebookDisplayName</key>
 	<string>Life Points Demo App</string>
 	<key>LSApplicationCategoryType</key>
