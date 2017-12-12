@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="b9Q-dq-aaf">
-                                <rect key="frame" x="0.0" y="-14.5" width="375" height="667"/>
+                            <imageView opaque="NO" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="b9Q-dq-aaf">
+                                <rect key="frame" x="0.0" y="-15" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -55,8 +55,8 @@
                                     <action selector="logoutClick" destination="Mk6-0A-OO7" eventType="touchUpInside" id="COg-j5-zFM"/>
                                 </connections>
                             </button>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" text="Bio" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="LVC-e3-d2r" userLabel="bioField">
-                                <rect key="frame" x="69" y="149" width="237" height="128"/>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="interactive" text="Bio" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="LVC-e3-d2r" userLabel="bioField">
+                                <rect key="frame" x="69" y="141" width="237" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="6If-jN-Wz1"/>
@@ -90,6 +90,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" id="IpX-gp-Pz9"/>
                     <connections>
+                        <outlet property="backgroundImage" destination="b9Q-dq-aaf" id="hem-cT-bbI"/>
                         <outlet property="bioTextView" destination="LVC-e3-d2r" id="JJr-vH-Rx0"/>
                         <outlet property="gpsTextField" destination="09e-R0-0JC" id="a5k-Ts-NO1"/>
                         <outlet property="usernameTextField" destination="nqa-XS-s5b" id="nKG-pT-92g"/>
@@ -99,7 +100,7 @@
             </objects>
             <point key="canvasLocation" x="-1807" y="785"/>
         </scene>
-        <!--Home-->
+        <!--Users-->
         <scene sceneID="tZF-Uy-J1W">
             <objects>
                 <tableViewController id="7Xb-mw-Ks8" customClass="UsersTableViewControlle" customModule="Test_01" customModuleProvider="target" sceneMemberID="viewController">
@@ -138,7 +139,7 @@
                             <outlet property="delegate" destination="7Xb-mw-Ks8" id="dB3-Jg-91O"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Home" id="TuU-v2-28X"/>
+                    <tabBarItem key="tabBarItem" title="Users" id="TuU-v2-28X"/>
                     <connections>
                         <outlet property="tableView" destination="C45-s0-Rks" id="YD8-b4-0ag"/>
                     </connections>

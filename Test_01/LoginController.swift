@@ -18,6 +18,7 @@ class LoginController: UIViewController,UITextViewDelegate, FUIAuthDelegate {
     var dbRef: DatabaseReference?
     var dbHandler: DatabaseHandle?
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var gpsTextField: UITextField!
     
     @IBOutlet weak var usernameTextField: UITextField!
@@ -41,12 +42,24 @@ class LoginController: UIViewController,UITextViewDelegate, FUIAuthDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         bioTextView.delegate = self
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(LoginController.tapDetected))
+        singleTap.numberOfTapsRequired = 1
+        
+        backgroundImage.addGestureRecognizer(singleTap)
         checkLoggedIn()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //Action
+    @objc func tapDetected() {
+        print("Single Tap on imageview")
+        self.bioTextView.resignFirstResponder()
+        self.gpsTextField.resignFirstResponder()
+        self.usernameTextField.resignFirstResponder()
     }
     
     func checkLoggedIn(){
